@@ -81,13 +81,15 @@
 <div class="skills-bubble" id="skillsContainer">
     Loading skills...
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js">
-        document.addEventListener('DOMContentLoaded', async () => {
+<script type="module">
+    import { marked } from 'https://cdn.jsdelivr.net/npm/marked/marked.esm.min.js';
+    
+    document.addEventListener('DOMContentLoaded', async () => {
         const container = document.getElementById('skillsContainer');
         if (!container) return;
     
         try {
-            const response = await fetch('https://raw.githubusercontent.com/fwextx/fwextx.github.io/refs/heads/main/assets/skills.md');
+            const response = await fetch('assets/skills.md');
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const mdText = await response.text();
             container.innerHTML = marked(mdText);
@@ -96,9 +98,10 @@
             console.error('Error loading skills.md:', err);
         }
     });
-    </script>
+</script>
 </body>
 </html>
+
 
 
 
