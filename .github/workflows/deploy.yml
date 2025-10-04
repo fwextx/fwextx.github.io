@@ -1,0 +1,30 @@
+name: Deploy fwextx.github.io
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Prepare deployment folder
+        run: |
+          rm -rf deploy
+          mkdir deploy
+          cp *.html deploy/
+          cp -r assets/ deploy/
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: gh-pages
+          keep_files: false
+          force_orphan: true
