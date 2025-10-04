@@ -4,18 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Extx Portfolio</title>
-    <script>
-      const workerUrl = "https://portfoliobuilder-analytics.fwextx.workers.dev/";
-
-      fetch(workerUrl, {
-        method: 'GET',
-        mode: 'no-cors'
-      })
-      .catch(err => {
-        console.warn("Analytics Worker error:", err);
-      });
-</script>
-
     <style>
         body {
             margin: 0;
@@ -83,4 +71,5 @@
 
 </body>
 </html>
+
 
