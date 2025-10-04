@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Skills</title>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.2.4/dist/showdown.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -81,18 +82,20 @@
 <div class="skills-bubble" id="skillsContainer">
     Loading skills...
 </div>
-<script type="module">
-    import { marked } from 'https://cdn.jsdelivr.net/npm/marked/marked.esm.min.js';
-    
+<script>
     document.addEventListener('DOMContentLoaded', async () => {
         const container = document.getElementById('skillsContainer');
         if (!container) return;
-    
+
         try {
             const response = await fetch('assets/skills.md');
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const mdText = await response.text();
-            container.innerHTML = marked(mdText);
+
+            const converter = new showdown.Converter();
+            const html = converter.makeHtml(mdText);
+
+            container.innerHTML = html;
         } catch (err) {
             container.textContent = "Failed to load skills. Please try again later.";
             console.error('Error loading skills.md:', err);
@@ -101,6 +104,7 @@
 </script>
 </body>
 </html>
+
 
 
 
