@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function loadSkills() {
+            const container = document.getElementById('skillsContainer');
+            try {
+                const response = await fetch('assets/skills.md');
+                const mdText = await response.text();
+                container.innerHTML = marked(mdText);
+            } catch (err) {
+                container.textContent = "An unknown error has occured. Please contact a site administrator for more details." + "ErrFailedToLoad";
+                console.error(err);
+            }
+        }
+
+        loadSkills();
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #0a0f1c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 15% 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        .skills-bubble {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 25px;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: white;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            margin-left: 25px;
+            margin-right: 25px;
+            font-size: 1.2rem;
+        }
+
+        .skills-bubble h1,
+        .skills-bubble h2,
+        .skills-bubble h3,
+        .skills-bubble h4,
+        .skills-bubble h5,
+        .skills-bubble h6 {
+            color: #fff;
+            margin: 0.5em 0;
+        }
+
+        .skills-bubble p {
+            font-size: 1.2rem;
+            margin: 0.3em 0;
+            line-height: 1.5;
+        }
+
+        .skills-bubble strong {
+            font-weight: 700;
+        }
+
+        .skills-bubble em {
+            font-style: italic;
+        }
+
+        .skills-bubble::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-bubble {
+                width: 90%;
+                padding: 30px 20px;
+            }
+            .skills-bubble p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="skills-bubble" id="skillsContainer">
+    Loading skills...
+</div>
+</body>
+</html>
