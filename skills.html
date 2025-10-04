@@ -83,21 +83,23 @@
     Loading skills...
 </div>
     <script>
-        async function loadSkills() {
-            const container = document.getElementById('skillsContainer');
-            try {
-                const response = await fetch('https://raw.githubusercontent.com/fwextx/fwextx.github.io/refs/heads/main/assets/skills.md');
-                const mdText = await response.text();
-                container.innerHTML = marked(mdText);
-            } catch (err) {
-                container.textContent = "An unknown error has occured. Please contact a site administrator for more details." + "ErrFailedToLoad";
-                console.error(err);
-            }
+        document.addEventListener('DOMContentLoaded', async () => {
+        const container = document.getElementById('skillsContainer');
+        if (!container) return;
+    
+        try {
+            const response = await fetch('https://raw.githubusercontent.com/fwextx/fwextx.github.io/refs/heads/main/assets/skills.md');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const mdText = await response.text();
+            container.innerHTML = marked(mdText);
+        } catch (err) {
+            container.textContent = "Failed to load skills. Please try again later.";
+            console.error('Error loading skills.md:', err);
         }
-
-        loadSkills();
+    });
     </script>
 </body>
 </html>
+
 
 
