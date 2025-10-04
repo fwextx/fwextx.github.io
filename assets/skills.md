@@ -13,8 +13,6 @@ Hi there! I'm a passionate **Python developer** and **Full-stack Developer** bas
 ## Check out my new project!
 ### [Portfolio Builder Project](https://github.com/fwextx/PortfolioBuilder)
 
-<img src="GeneratedPortfolio.webp" alt="Example Portfolio Output" width="800" height="auto"/>
-
 Thanks for taking a look at my projects and my skills! For more projects, check out the Repositories tab!
 ---
 
@@ -22,3 +20,4 @@ Thanks for reading this! Feel free to reach out if you want to collaborate.
 
 
 Reach out to me via Discord - extx2
+
