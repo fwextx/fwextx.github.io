@@ -86,7 +86,7 @@
         async function loadSkills() {
             const container = document.getElementById('skillsContainer');
             try {
-                const response = await fetch('assets/skills.md');
+                const response = await fetch('https://github.com/fwextx/fwextx.github.io/blob/main/assets/skills.md');
                 const mdText = await response.text();
                 container.innerHTML = marked(mdText);
             } catch (err) {
@@ -99,3 +99,4 @@
     </script>
 </body>
 </html>
+
