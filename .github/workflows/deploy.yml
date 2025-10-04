@@ -18,6 +18,7 @@ jobs:
           rm -rf deploy
           mkdir deploy
           cp *.html deploy/
+          cp showdown.min.js deploy/
           cp -r assets/ deploy/
 
       - name: Deploy to gh-pages
