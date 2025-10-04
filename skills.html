@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Skills</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        async function loadSkills() {
-            const container = document.getElementById('skillsContainer');
-            try {
-                const response = await fetch('assets/skills.md');
-                const mdText = await response.text();
-                container.innerHTML = marked(mdText);
-            } catch (err) {
-                container.textContent = "An unknown error has occured. Please contact a site administrator for more details." + "ErrFailedToLoad";
-                console.error(err);
-            }
-        }
-
-        loadSkills();
-    </script>
     <style>
         body {
             margin: 0;
@@ -97,5 +82,20 @@
 <div class="skills-bubble" id="skillsContainer">
     Loading skills...
 </div>
+    <script>
+        async function loadSkills() {
+            const container = document.getElementById('skillsContainer');
+            try {
+                const response = await fetch('assets/skills.md');
+                const mdText = await response.text();
+                container.innerHTML = marked(mdText);
+            } catch (err) {
+                container.textContent = "An unknown error has occured. Please contact a site administrator for more details." + "ErrFailedToLoad";
+                console.error(err);
+            }
+        }
+
+        loadSkills();
+    </script>
 </body>
 </html>
