@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extx Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #0f0f10;
+            color: white;
+            overflow: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background: rgba(254, 255, 255, 0.13);
+            backdrop-filter: blur(12px);
+            padding: 12px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-item {
+            background: rgba(251, 251, 251, 0.18);
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            text-decoration: none;
+            transition: 0.25s ease;
+            box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        iframe::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<iframe name="fMainPage" src="portfolio.html" title="Extx Portfolio" style="border:none;" sandbox="allow-scripts allow-same-origin"></iframe>
+
+<nav class="navbar">
+    <a href="portfolio.html" target="fMainPage" class="nav-item">Home</a>
+    <a href="skills.html" target="fMainPage" class="nav-item">About Me</a>
+    <a href="https://github.com/fwextx/PortfolioBuilder" target="_blank" class="nav-item">Portfolio Builder</a>
+    <a href="https://github.com/fwextx" target="_blank" class="nav-item">GitHub</a>
+    <a href="https://fwextx.itch.io" target="_blank" class="nav-item">My Games</a>
+</nav>
+
+</body>
+</html>
+
+
+
+
+
+
